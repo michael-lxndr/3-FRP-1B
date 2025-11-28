@@ -1,35 +1,35 @@
-case class Product(name: String, price: Double, stock: Int)
-
-val products = List(
-  Product("Laptop", 1200, 30),
-  Product("Tablet", 500, 10),
-  Product("Headphones", 200, 5),
-  Product("Keyboard", 150, 50),
-  Product("Mouse", 100, 15),
-  Product("Charger", 25, 100)
+case class Prestamo(
+    id: Int,
+    usuarioId: Int,
+    libroId: Int,
+    activo: Boolean,
+    fechaPrestamo: String
 )
 
-def filterProduct(
-    products: List[Product],
-    criterion: Product => Boolean
-): List[Product] = products.filter(criterion)
+/** Devuelve un libro (marca el préstamo como inactivo) SIN mutar la lista
+  * original de préstamos
+  */
+def devolverLibro(
+    prestamos: List[Prestamo],
+    prestamoId: Int
+): List[Prestamo] = {
+  prestamos.map { prestamo =>
+    if (prestamo.id == prestamoId) prestamo.copy(activo = false)
+    else prestamo
+  }
+}
 
-@main def main(): Unit =
-  //	(filtrado)
-  val expensiveProducts = filterProduct(products, p => p.price >= 450)
-  println(s"Productos caros son:")
-  for (p, i) <- expensiveProducts.zipWithIndex do
-    println(s"${i + 1}. ${p.name}")
+val prestamos = List(
+  Prestamo(1, 101, 201, true, "2024-01-15"),
+  Prestamo(2, 102, 202, true, "2024-01-20")
+)
+
+val prestamosActualizados = devolverLibro(prestamos, 1)
+
+@main def main(): Unit = {
+  println("Préstamos originales:")
+  prestamos.foreach(println)
   println()
-
-  // (transformación)
-  val productNames: List[String] = products.map(p => p.name)
-  println(s"Nombres de productos: $productNames")
-
-  // (agregación)
-  val totalStock: Int = products.map(_.stock).sum
-  val subStock: Double = products.map(_.price).reduce((a, v) => a - v)
-  val totalPrices: Double = products.map(_.price).reduce((a, v) => a - v)
-  println(s"Stock total: $totalStock")
-  println(s"Stock total: $subStock")
-  println(s"Total gross earnings: $totalPrices")
+  println("\nPréstamos actualizados después de devolver el libro:")
+  prestamosActualizados.foreach(println)
+}

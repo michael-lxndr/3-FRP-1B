@@ -29,7 +29,6 @@ const libros = [
 	},
 ];
 
-// Implementaci√≥n 1: Paradigma IMPERATIVO (0.4 puntos)
 function filtrarLibrosImperativo(libros, categoria) {
 	let result = [];
 	for (let i = 0, libro = libros.length; i < libro; i++) {
@@ -41,7 +40,6 @@ function filtrarLibrosImperativo(libros, categoria) {
 	for (let i = 0; i < result.length - 1; i++) {
 		for (let j = i + 1; j < result.length; j++) {
 			if (result[i].anio > result[j].anio) {
-				// swap
 				let temp = result[i];
 				result[i] = result[j];
 				result[j] = temp;
@@ -51,7 +49,6 @@ function filtrarLibrosImperativo(libros, categoria) {
 	return result;
 }
 
-// Implementaci√≥n 2: Paradigma DECLARATIVO (0.4 puntos)
 function filtrarLibrosDeclarativo(libros, categoria) {
 	return libros
 		.filter((libro) => !libro.prestado && libro.categoria === categoria)
