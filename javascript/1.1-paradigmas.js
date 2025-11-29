@@ -40,6 +40,7 @@ function filtrarLibrosImperativo(libros, categoria) {
 	for (let i = 0; i < result.length - 1; i++) {
 		for (let j = i + 1; j < result.length; j++) {
 			if (result[i].anio > result[j].anio) {
+				// swap
 				let temp = result[i];
 				result[i] = result[j];
 				result[j] = temp;
@@ -51,6 +52,8 @@ function filtrarLibrosImperativo(libros, categoria) {
 
 function filtrarLibrosDeclarativo(libros, categoria) {
 	return libros
+		// filter: recorre el array y devuelve nuevo array con elementos que cumplen la condición
 		.filter((libro) => !libro.prestado && libro.categoria === categoria)
+		// sort: ordena el array según la función de comparación (x.anio - y.anio = orden ascendente)
 		.sort((x, y) => x.anio - y.anio);
 }

@@ -2,12 +2,14 @@ case class Libro(id: Int, titulo: String, autor: String, categoria: String)
 
 class Biblioteca(libros: List[Libro]) {
   def buscarPorAutor(autor: String): List[Libro] = {
+    // filter: devuelve nueva lista con solo los elementos que cumplen la condición
     libros.filter(libro => libro.autor == autor)
   }
 }
 
 object FuncionesBiblioteca {
   def buscarPorAutor(libros: List[Libro], autor: String): List[Libro] = {
+    // filter: devuelve nueva lista con solo los elementos que cumplen la condición
     libros.filter(libro => libro.autor == autor)
   }
 }

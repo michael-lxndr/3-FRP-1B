@@ -6,13 +6,12 @@ case class Prestamo(
     fechaPrestamo: String
 )
 
-/** Devuelve un libro (marca el préstamo como inactivo) SIN mutar la lista
-  * original de préstamos
-  */
 def devolverLibro(
     prestamos: List[Prestamo],
     prestamoId: Int
 ): List[Prestamo] = {
+  // map: transforma cada elemento de la lista aplicando la función
+  // devuelve nueva lista sin modificar la original
   prestamos.map { prestamo =>
     if (prestamo.id == prestamoId) prestamo.copy(activo = false)
     else prestamo
@@ -25,7 +24,6 @@ val prestamos = List(
 )
 
 val prestamosActualizados = devolverLibro(prestamos, 1)
-
 @main def main(): Unit = {
   println("Préstamos originales:")
   prestamos.foreach(println)

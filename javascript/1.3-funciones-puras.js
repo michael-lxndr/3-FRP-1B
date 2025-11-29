@@ -1,6 +1,3 @@
-/**
- * Calcula días de retraso de un préstamo
- */
 function calcularDiasRetraso(fechaPrestamo, fechaDevolucion, diasPermitidos) {
 	const fechaInicio = new Date(fechaPrestamo);
 	const fechaFin = new Date(fechaDevolucion);
@@ -14,9 +11,6 @@ function calcularDiasRetraso(fechaPrestamo, fechaDevolucion, diasPermitidos) {
 	return Math.max(0, diasTranscurridos - diasPermitidos);
 }
 
-/**
- * Calcula multa por días de retraso
- */
 function calcularMulta(diasRetraso) {
 	return diasRetraso * 0.50;
 }
