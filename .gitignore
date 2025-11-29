@@ -11,3 +11,5 @@ scala/.vscode/
 scala/project/
 scala/target/
 scala/build.sbt
+.scalafmt.conf
+.bsp/
