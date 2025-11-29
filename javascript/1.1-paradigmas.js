@@ -42,7 +42,6 @@ function filtrarLibrosImperativo(libros, categoria) {
 		}
 	}
 
-	// Ordenar por año ascendente (burbuja)
 	for (let i = 0; i < result.length - 1; i++) {
 		for (let j = i + 1; j < result.length; j++) {
 			if (result[i].anio > result[j].anio) {

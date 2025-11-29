@@ -2,17 +2,21 @@
  * Genera un reporte completo de la biblioteca
  * Usa SOLO: map, filter, reduce, sort, etc.
  */
+/**
+ * @param {Array} libros - Array de objetos libro {id, titulo, categoria, año, prestado}
+ * @param {Array} prestamos - Array de objetos préstamo {id, libroId, usuarioId, fechaPrestamo, activo}
+ * @param {Array} usuarios - Array de objetos usuario {id, nombre, email}
+ * @returns {Object} Reporte con estadísticas de la biblioteca
+ */
 function generarReporteCompleto(libros, prestamos, usuarios) {
 	return {
 		// Total de libros por categoria (0.15 puntos)
-		// reduce: acumula libros agrupándolos por categoría
 		librosPorCategoria: libros.reduce((acumulador, libro) => {
 			acumulador[libro.categoria] = (acumulador[libro.categoria] || 0) + 1;
 			return acumulador;
 		}, {}),
 
 		// Top 5 usuarios más activos (0.15 puntos)
-		// map: cuenta préstamos por usuario, sort: ordena por cantidad, slice: toma los 5 primeros
 		usuariosMasActivos: usuarios
 			.map((usuario) => {
 				const cantidadPrestamos = prestamos.filter(
@@ -22,8 +26,6 @@ function generarReporteCompleto(libros, prestamos, usuarios) {
 			})
 			.sort((a, b) => b.cantidadPrestamos - a.cantidadPrestamos)
 			.slice(0, 5),
-
-		// map recorre 3 veces y el filter dentro 9 veces = 27 iteraciones
 
 		// Libros más prestados (0.15 puntos)
 		// reduce: cuenta préstamos por libro, luego convierte a array y ordena
@@ -102,7 +104,7 @@ const prestamos = [
 
 const reporte = generarReporteCompleto(libros, prestamos, usuarios);
 console.log("Reporte de la Biblioteca:");
-console.log("\n1. Libros por categoría:");
+console.log("\n1. Mejores categorías:");
 console.log(reporte.librosPorCategoria);
 console.log("\n2. Top 5 usuarios más activos:");
 console.log(reporte.usuariosMasActivos);

@@ -1,4 +1,4 @@
-# Evaluación Programación Funcional - Michael Alexander Paccha Morocho
+# Evaluación Programación Funcional
 
 ## 📋 Información del Estudiante
 - **Nombre:** Michael Alexander Paccha Morocho
@@ -36,15 +36,15 @@
 ### Extensiones Recomendadas para VS Code
 
 #### JavaScript:
-- **Code Runner** - [[ENLACE_CODE_RUNNER]](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+- [**Code Runner**](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
   - Permite ejecutar archivos JS con un clic
 
 #### Scala:
-- **Scala (Metals)** - [[ENLACE_METALS]](https://marketplace.visualstudio.com/items?itemName=scalameta.metals)
+- [**Scala (Metals)**](https://marketplace.visualstudio.com/items?itemName=scalameta.metals)
   - Soporte completo para Scala con IntelliSense
-- **Scala Syntax (Official)** - [[ENLACE_SCALA_SYNTAX]](https://marketplace.visualstudio.com/items?itemName=scala-lang.scala)
+- [**Scala Syntax (Official)**](https://marketplace.visualstudio.com/items?itemName=scala-lang.scala)
   - Resaltado de sintaxis oficial
-- **Scala Extension Pack** - [[ENLACE_EXTENSION_PACK]](https://marketplace.visualstudio.com/items?itemName=ravioshankar.scala-gurus)
+- [**Scala Extension Pack**](https://marketplace.visualstudio.com/items?itemName=ravioshankar.scala-gurus)
   - Pack completo de herramientas Scala
 
 ---
@@ -60,7 +60,7 @@
 │   ├── 2.1-orden-superior.js     # Closures y funciones de orden superior
 │   └── 2.3-recomendaciones.js    # Sistema de recomendación funcional
 │
-├── scala/                         		# Ejercicios en Scala
+├── scala/										# Ejercicios en Scala
 │   ├── 1.2-inmutabilidad.scala   		# Transformaciones inmutables
 │   ├── 1.4-funciones-vs-metodos.scala	# Comparación funciones/métodos
 │   ├── 2.2-composicion.scala     		# Composición de funciones con andThen
@@ -176,28 +176,6 @@ scala-cli run 2.4-tuplas-analisis.scala
 
 ---
 
-## 🧪 Verificar que Todo Funciona
-
-### Test Rápido JavaScript:
-```bash
-node javascript/1.1-paradigmas.js && echo "✓ 1.1 OK"
-node javascript/1.3-funciones-puras.js && echo "✓ 1.3 OK"
-node javascript/1.5-operaciones-listas.js && echo "✓ 1.5 OK"
-node javascript/2.1-orden-superior.js && echo "✓ 2.1 OK"
-node javascript/2.3-recomendaciones.js && echo "✓ 2.3 OK"
-```
-
-### Test Rápido Scala:
-```bash
-cd scala
-scala-cli run 1.2-inmutabilidad.scala && echo "✓ 1.2 OK"
-scala-cli run 1.4-funciones-vs-metodos.scala && echo "✓ 1.4 OK"
-scala-cli run 2.2-composicion.scala && echo "✓ 2.2 OK"
-scala-cli run 2.4-tuplas-analisis.scala && echo "✓ 2.4 OK"
-```
-
----
-
 ## 💡 Conceptos Clave Implementados
 
 ### Programación Funcional:
@@ -237,15 +215,6 @@ scala-cli run 2.4-tuplas-analisis.scala && echo "✓ 2.4 OK"
 3. **Inmutabilidad garantizada** - Uso de `slice()`, spread operator, `copy()`
 4. **Código comentado** - Explicaciones de métodos y lógica compleja
 5. **Ejemplos de datos incluidos** - Cada archivo tiene datos de prueba
-
----
-
-## 🎯 Evaluación
-
-- **FASE 1 (APEB1):** 3.5 puntos - Fundamentos ✅
-- **FASE 2 (AAB1):** 3.0 puntos - Aplicación Avanzada ✅
-- **FASE 3 (ACDB1):** 3.5 puntos - Defensa Oral (Pendiente)
-- **TOTAL:** 10.0 puntos
 
 ---
 
