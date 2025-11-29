@@ -14,26 +14,19 @@ def obtenerEstadisticasUsuario(
     prestamos: List[Prestamo],
     usuarioId: Int
 ): (Int, Int, Double) = {
-  // filter: filtra solo los préstamos del usuario específico
   val prestamosUsuario = prestamos.filter(p => p.usuarioId == usuarioId)
 
-  // Total de préstamos del usuario
   val totalPrestamos = prestamosUsuario.length
 
-  // filter: cuenta solo los préstamos activos
   val prestamosActivos = prestamosUsuario.filter(p => p.activo).length
 
-  // Calcular promedio de libros por mes
   val promedioLibrosPorMes = if (prestamosUsuario.isEmpty) {
     0.0
   } else {
-    // map: extrae solo las fechas de préstamo
     val fechas = prestamosUsuario.map(_.fechaPrestamo)
 
-    // map: convierte fechas a meses únicos (formato "2024-01")
     val meses = fechas.map(fecha => fecha.substring(0, 7)).distinct
 
-    // Calcular promedio: total de préstamos / cantidad de meses
     totalPrestamos.toDouble / meses.length
   }
 
@@ -41,7 +34,7 @@ def obtenerEstadisticasUsuario(
   (totalPrestamos, prestamosActivos, promedioLibrosPorMes)
 }
 
-// Ejemplo:
+// ! Ejemplo:
 val prestamos = List(
   Prestamo(1, 101, 1, "2024-01-15", false),
   Prestamo(2, 102, 1, "2024-02-10", true),

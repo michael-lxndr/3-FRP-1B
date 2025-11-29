@@ -28,7 +28,6 @@ function generarReporteCompleto(libros, prestamos, usuarios) {
 			.slice(0, 5),
 
 		// Libros más prestados (0.15 puntos)
-		// reduce: cuenta préstamos por libro, luego convierte a array y ordena
 		librosMasPrestados: Object.entries(
 			prestamos.reduce((acumulador, prestamo) => {
 				acumulador[prestamo.libroId] = (acumulador[prestamo.libroId] || 0) + 1;
@@ -40,10 +39,8 @@ function generarReporteCompleto(libros, prestamos, usuarios) {
 				return { libro: libro.titulo || "Desconocido", cantidad };
 			})
 			.sort((a, b) => b.cantidad - a.cantidad),
-		// reduce recorre 9 + el map recorre 3 * 4 del find = 12, total 21 iteraciones
 
 		// Tasa de préstamos activos (0.15 puntos)
-		// filter: cuenta préstamos activos, luego calcula porcentaje
 		tasaPrestamosActivos:
 			prestamos.length > 0
 				? ((prestamos.filter((p) => p.activo).length / prestamos.length) * 100)

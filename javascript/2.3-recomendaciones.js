@@ -25,7 +25,6 @@ function recomendarLibros(libros, usuario, historialPrestamos) {
 	);
 
 	// PASO 2: Agregar score a cada libro
-	// map: transforma cada libro agregando su score de recomendación
 	/**
 	 * @param {Object} libro Objeto libro
 	 * @returns {Object} Nuevo objeto libro con score agregado
@@ -34,32 +33,22 @@ function recomendarLibros(libros, usuario, historialPrestamos) {
 		// Buscar el historial de préstamos de este libro
 		const prestamo = historialPrestamos.find(p => p.libroId === libro.id) || { cantidad: 0 };
 
-		// Calcular score según las reglas:
-		// Math.floor divide entre 10 y redondea hacia abajo
 		const popularidad = Math.floor(prestamo.cantidad / 10);
 
-		// verificar si el año es 2020 o posterior
 		const recencia = libro.año >= 2020 ? 2 : 0;
 
-		// multiplicar el rating por 10
 		const ratingScore = libro.rating * 10;
 
-		// Sumar todos los componentes del score
 		const score = popularidad + recencia + ratingScore;
 
-		// Retornar un nuevo objeto con el libro original y su score
-		// Usar spread operator (...) para mantener inmutabilidad
 		return { ...libro, score };
 	});
 
 	// PASO 3: Obtener top 10
-	// sort: ordena por score de mayor a menor (b - a para descendente)
-	// slice: toma los primeros 10 elementos
-	// IMPORTANTE: usar slice para no mutar el array original (sort muta)
 	const top10 = librosConScore
-		.slice() // Crear copia para no mutar el array original
-		.sort((a, b) => b.score - a.score) // Ordenar por score descendente
-		.slice(0, 10); // Tomar los primeros 10
+		.slice()
+		.sort((a, b) => b.score - a.score)
+		.slice(0, 10);
 
 	return top10;
 }
@@ -71,18 +60,90 @@ const usuario = {
 };
 
 const libros = [
-	{ id: 1, titulo: "Clean Code", categoria: "Programacion", año: 2008, rating: 4.5 },
-	{ id: 2, titulo: "Refactoring", categoria: "Programacion", año: 2018, rating: 4.7 },
-	{ id: 3, titulo: "Design Patterns", categoria: "Programacion", año: 1994, rating: 4.8 },
-	{ id: 4, titulo: "Introduction to Algorithms", categoria: "Matematicas", año: 2009, rating: 4.6 },
-	{ id: 5, titulo: "Calculus", categoria: "Matematicas", año: 2020, rating: 4.3 },
-	{ id: 6, titulo: "Linear Algebra", categoria: "Matematicas", año: 2021, rating: 4.4 },
-	{ id: 7, titulo: "The Art of War", categoria: "Historia", año: 2015, rating: 4.1 },
-	{ id: 8, titulo: "Python Crash Course", categoria: "Programacion", año: 2022, rating: 4.9 },
-	{ id: 9, titulo: "JavaScript: The Good Parts", categoria: "Programacion", año: 2008, rating: 4.2 },
-	{ id: 10, titulo: "Code Complete", categoria: "Programacion", año: 2004, rating: 4.7 },
-	{ id: 11, titulo: "Discrete Mathematics", categoria: "Matematicas", año: 2023, rating: 4.8 },
-	{ id: 12, titulo: "Algorithms Unlocked", categoria: "Matematicas", año: 2013, rating: 4.0 }
+	{
+		id: 1,
+		titulo: "Clean Code",
+		categoria: "Programacion",
+		año: 2008,
+		rating: 4.5
+	},
+	{
+		id: 2,
+		titulo: "Refactoring",
+		categoria: "Programacion",
+		año: 2018,
+		rating: 4.7
+	},
+	{
+		id: 3,
+		titulo: "Design Patterns",
+		categoria: "Programacion",
+		año: 1994,
+		rating: 4.8
+	},
+	{
+		id: 4,
+		titulo: "Introduction to Algorithms",
+		categoria: "Matematicas",
+		año: 2009,
+		rating: 4.6
+	},
+	{
+		id: 5,
+		titulo: "Calculus",
+		categoria: "Matematicas",
+		año: 2020,
+		rating: 4.3
+	},
+	{
+		id: 6,
+		titulo: "Linear Algebra",
+		categoria: "Matematicas",
+		año: 2021,
+		rating: 4.4
+	},
+	{
+		id: 7,
+		titulo: "The Art of War",
+		categoria: "Historia",
+		año: 2015,
+		rating: 4.1
+	},
+	{
+		id: 8,
+		titulo: "Python Crash Course",
+		categoria: "Programacion",
+		año: 2022,
+		rating: 4.9
+	},
+	{
+		id: 9,
+		titulo: "JavaScript: The Good Parts",
+		categoria: "Programacion",
+		año: 2008,
+		rating: 4.2
+	},
+	{
+		id: 10,
+		titulo: "Code Complete",
+		categoria: "Programacion",
+		año: 2004,
+		rating: 4.7
+	},
+	{
+		id: 11,
+		titulo: "Discrete Mathematics",
+		categoria: "Matematicas",
+		año: 2023,
+		rating: 4.8
+	},
+	{
+		id: 12,
+		titulo: "Algorithms Unlocked",
+		categoria: "Matematicas",
+		año: 2013,
+		rating: 4.0
+	}
 ];
 
 const historialPrestamos = [

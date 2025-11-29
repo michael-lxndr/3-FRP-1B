@@ -8,26 +8,22 @@ case class Libro(
 
 // Define funciones de transformación (0.3 puntos)
 val aplicarDescuento: Libro => Libro = libro => {
-  // Aplica 15% de descuento sobre el precio
   val precioConDescuento = libro.precio * 0.85
-  libro.copy(precio = precioConDescuento, descuento = 0.15) // Es scala esto es el return
+  libro.copy(precio = precioConDescuento, descuento = 0.15)
 }
 
 val aplicarImpuesto: Libro => Libro = libro => {
-  // Aplica 12% de IVA sobre el precio actual (ya con descuento)
   val precioConImpuesto = libro.precio * 1.12
   libro.copy(precio = precioConImpuesto, impuesto = 0.12)
 }
 
 val redondearPrecio: Libro => Libro = libro => {
 
-  // Redondea el precio a 2 decimales
   val precioRedondeado = BigDecimal(libro.precio).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
   libro.copy(precio = precioRedondeado)
 }
 
 // Usa composición de funciones (0.4 puntos)
-// andThen: aplica las funciones en orden secuencial (izquierda a derecha)
 val procesarPrecioFinal = aplicarDescuento andThen aplicarImpuesto andThen redondearPrecio
 
 // Aplica a lista de libros

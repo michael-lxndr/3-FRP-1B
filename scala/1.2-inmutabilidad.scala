@@ -10,8 +10,7 @@ def devolverLibro(
     prestamos: List[Prestamo],
     prestamoId: Int
 ): List[Prestamo] = {
-  // map: transforma cada elemento de la lista aplicando la función
-  // devuelve nueva lista sin modificar la original
+
   prestamos.map { prestamo =>
     if (prestamo.id == prestamoId) prestamo.copy(activo = false)
     else prestamo
