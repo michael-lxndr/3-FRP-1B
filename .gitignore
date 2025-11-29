@@ -1,5 +1,4 @@
 .metals/
-.vscode/
 .idea/
 javascript/.idea/
 scala/.idea/
@@ -10,6 +9,7 @@ scala/.scala-build/
 scala/.vscode/
 scala/project/
 scala/target/
+.bsp/
+.scala-build
 scala/build.sbt
 .scalafmt.conf
-.bsp/
