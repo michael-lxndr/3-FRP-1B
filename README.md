@@ -598,16 +598,16 @@ evaluacion-reactiva-funcional/
 # Evaluación Programación Funcional - [Tu Nombre Completo]
 
 ## Información del Estudiante
-- **Nombre:** [Tu nombre]
-- **Cédula/ID:** [Tu identificación]
-- **Fecha:** [Fecha de entrega]
+- **Nombre:** Michael Alexander Paccha Morocho
+- **Cédula/ID:** 1105976888
+- **Fecha:** 28/11/2025
 
 ## Instrucciones de Ejecución
 
 ### JavaScript
 ```bash
 # Para ejecutar los archivos JavaScript:
-node javascript/1.1-paradigmas.js
+cd javascript
 node javascript/1.3-funciones-puras.js
 # ... etc
 ```
@@ -615,8 +615,8 @@ node javascript/1.3-funciones-puras.js
 ### Scala
 ```bash
 # Para compilar y ejecutar Scala:
-scalac scala/1.2-inmutabilidad.scala
-scala Inmutabilidad
+cd scala
+scala-cli run 1.2-inmutabilidad.scala"
 # ... etc
 ```
 
@@ -629,7 +629,7 @@ scala Inmutabilidad
 
 ## Notas Adicionales
 [Cualquier aclaración sobre tu implementación]
-```
+
 
 ---
 
@@ -674,7 +674,7 @@ scala Inmutabilidad
 
 ## Ejemplo de Datos para Pruebas
 
-```javascript
+```js
 // JavaScript - Datos de ejemplo
 const librosEjemplo = [
   { id: 1, titulo: "Functional Programming in JavaScript", autor: "Luis Atencio", categoria: "Programacion", anio: 2016, rating: 4.5, precio: 45.99 },

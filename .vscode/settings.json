@@ -49,7 +49,7 @@
 			"italic": false
 		},
 		{
-			"tag": "-",
+			"tag": "#",
 			"color": "#a8dc9b",
 			"strikethrough": false,
 			"underline": false,

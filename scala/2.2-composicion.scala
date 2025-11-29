@@ -54,33 +54,33 @@ val librosConPrecioFinal = libros.map(procesarPrecioFinal)
 /*
  ? ¿Qué ventaja tiene la composición vs un solo método grande?
  *
- - 1. MODULARIDAD: Cada función hace una sola cosa (principio de responsabilidad única)
+ # 1. MODULARIDAD: Cada función hace una sola cosa (principio de responsabilidad única)
  *    - aplicarDescuento solo aplica descuento
  *    - aplicarImpuesto solo aplica impuesto
  *    - redondearPrecio solo redondea
  *
- - 2. REUTILIZACIÓN: Puedes usar las funciones individualmente en otros contextos
+ # 2. REUTILIZACIÓN: Puedes usar las funciones individualmente en otros contextos
  *    - Ejemplo: aplicar solo descuento sin impuesto
  *
- - 3. FLEXIBILIDAD: Fácil cambiar el orden o agregar/quitar transformaciones
+ # 3. FLEXIBILIDAD: Fácil cambiar el orden o agregar/quitar transformaciones
  *    - val otroProceso = aplicarImpuesto andThen redondearPrecio (sin descuento)
  *    - val proceso2 = aplicarDescuento andThen redondearPrecio andThen aplicarImpuesto
  *
- - 4. LEGIBILIDAD: El código expresa claramente qué hace y en qué orden
+ # 4. LEGIBILIDAD: El código expresa claramente qué hace y en qué orden
  *    - "procesarPrecioFinal" se lee como una secuencia clara de pasos
  *
  ? ¿Cómo facilita el testing?
  *
- - 1. TEST UNITARIO: Puedes probar cada función por separado
+ # 1. TEST UNITARIO: Puedes probar cada función por separado
  *    - Test para aplicarDescuento(libro) => verifica que aplica 15%
  *    - Test para aplicarImpuesto(libro) => verifica que aplica 12%
  *    - Test para redondearPrecio(libro) => verifica redondeo a 2 decimales
  *
- - 2. TEST DE INTEGRACIÓN: Pruebas la composición completa
+ # 2. TEST DE INTEGRACIÓN: Pruebas la composición completa
  *    - Test para procesarPrecioFinal(libro) => verifica resultado final
  *
- - 3. AISLAMIENTO: Si un test falla, sabes exactamente qué función tiene el problema
+ # 3. AISLAMIENTO: Si un test falla, sabes exactamente qué función tiene el problema
  *    - No necesitas debuggear un método grande con lógica mezclada
  *
- - 4. MOCKING: Es más fácil mockear funciones individuales si fuera necesario
+ # 4. MOCKING: Es más fácil mockear funciones individuales si fuera necesario
  */
